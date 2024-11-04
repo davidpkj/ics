@@ -11,6 +11,7 @@ type Event struct {
 	Status       EventStatus
 	Geo          *GeoLocation
 	Location     string
+	TZid         string
 	DtEnd        time.Time
 	DtStart      time.Time
 	RRule        []string

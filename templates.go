@@ -11,9 +11,9 @@ const vevent = `BEGIN:VEVENT
 ORGANIZER;CN="{{.Organizer.CommonName}}":mailto:{{.Organizer.EmailAddress}}
 {{range $at := .Attendees}}ATTENDEE;CUTYPE={{$at.CuType}};ROLE={{$at.Role}};PARTSTAT={{$at.PartStatus}};CN="{{$at.CommonName}}";RSVP={{$at.Rsvp}}:mailto:{{$at.EmailAddress}}
 {{end}}LOCATION:{{.Location}}
-DTSTAMP:{{.DtStamp}}
-DTSTART:{{.DtStart}}
-DTEND:{{.DtEnd}}{{range $ru := .RRule}}
+DTSTAMP;TZID={{.TZid}}:{{.DtStamp}}
+DTSTART;TZID={{.TZid}}:{{.DtStart}}
+DTEND;TZID={{.TZid}}:{{.DtEnd}}{{range $ru := .RRule}}
 RRULE:{{$ru}}{{end}}{{range $ru := .ExRule}}
 EXRULE:{{$ru}}{{end}}{{range $ru := .ExDate}}
 EXDATE:{{$ru}}{{end}}
