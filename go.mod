@@ -1,3 +1,3 @@
-module github.com/anujdecoder/ics
+module github.com/davidpkj/ics
 
 go 1.12

@@ -146,7 +146,6 @@ func FormatDateTime(t time.Time) string {
 	if len(sec) < 2 {
 		dt += "0"
 	}
-	dt += sec + "Z"
 
 	return dt
 }
