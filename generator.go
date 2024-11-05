@@ -3,7 +3,6 @@ package ics
 import (
 	"bytes"
 	"encoding/hex"
-	"strconv"
 	"strings"
 	"text/template"
 	"time"
@@ -116,36 +115,5 @@ type generator struct {
 }
 
 func FormatDateTime(t time.Time) string {
-	dt := strconv.Itoa(t.Year())
-
-	month := strconv.Itoa(int(t.Month()))
-	if len(month) < 2 {
-		dt += "0"
-	}
-	dt += month
-
-	day := strconv.Itoa(t.Day())
-	if len(day) < 2 {
-		dt += "0"
-	}
-	dt += day + "T"
-
-	hour := strconv.Itoa(t.Hour())
-	if len(hour) < 2 {
-		dt += "0"
-	}
-	dt += hour
-
-	min := strconv.Itoa(t.Minute())
-	if len(min) < 2 {
-		dt += "0"
-	}
-	dt += min
-
-	sec := strconv.Itoa(t.Second())
-	if len(sec) < 2 {
-		dt += "0"
-	}
-
-	return dt
+	return t.Format("20060102T150405")
 }
